@@ -21,7 +21,8 @@ public:
 	}
 
 	friend std::ostream& operator<<( std::ostream& stream, const Tile& tile) {
-	//	return stream << " " <<  (tile.isEmpty() ? " " : std::to_string(tile.value)) << "  ";
+		//	return stream << " " <<  (tile.isEmpty() ? " " : std::to_string(tile.value)) << "  ";
+		// Use https://www.soscisurvey.de/tools/view-chars.php to fix/change
 		if ( tile.value > 0 && tile.value <= 9) {
 			return stream << "  " << tile.value << " ";
 		} else if ( tile.value >= 10) {

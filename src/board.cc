@@ -3,15 +3,20 @@
 #include <array>
 #include "internal/tile.hh"
 
-constexpr std::string clear = "\x1B[2J\x1B[H";
+#if defined(__linux__)
+	constexpr std::string clear = "\x1B[2J\x1B[H";
+#endif
+// BUG: Handle clear for windows.
 
 class Board {
 public:
 	Board() {
-		display_solved();
+		display_board();
 	}
 
-	void display_solved() {	
+	/// Display the board with all the tiles.
+	/// @returns void
+	void display_board() {	
 		std::cout << clear;
 		for (auto i = 0; auto const& tile : solved_board) {
 			std::cout << tile;
@@ -21,7 +26,32 @@ public:
 			}
 		}
 	}
+	
+	friend class Controller;
+
 private:
+	
+	bool slide_up() {
+		return 0;
+	}
+	
+	bool slide_down() {
+		return 0;
+	}
+	
+	bool slide_left() {
+		return 0;
+	}
+	
+	bool slide_right() {
+		return 0;
+	}
+
+	void do_exit() {
+		std::cout << "\n\nBYE\n\n";
+		exit(0);
+	}
+
 	std::array<Tile<int>, 16> solved_board = {
 		Tile{1},
 		Tile{2},
