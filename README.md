@@ -2,6 +2,12 @@
 
 Fifteen Puzzle in C++. 
 
+<p float="left" align="middle">
+  <img src="./asset/fifpuz1.png" width="100" />
+  <img src="./asset/fifpuz2.png" width="100" /> 
+  <img src="./asset/fifpuz3.png" width="100" />
+</p>
+
 ## To build:
 
 ```
