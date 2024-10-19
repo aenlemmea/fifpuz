@@ -1,13 +1,14 @@
-# CPP-Template
+# fifpuz 
 
-Begin by install clang, python3-dev, python3-pip, libc++-dev, cmake, ninja-build.
+Fifteen Puzzle in C++. 
 
-Edit the CMakeLists EXEC\_NAME to set the default executable name. Also set project() in CMakeLists.
-Generate the makefiles (default, Unix Makefiles) with `./build.sh`
+## To build:
 
-The script generates a `out` directory and copies the compile\_commands.json to the root directory for editor use. 
-`cd out` then you can call `make` to generate the executable.
-
-To quickly clean the generated cmake files, run `./build.sh clean` 
-
-
+```
+1. Install g++ (& libstdc++-<xx>-dev), make, cmake.
+2. Run ./build.sh
+[Run the commands below]
+3. cd out
+4. make
+5. ./fifpuz
+```
