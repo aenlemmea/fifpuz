@@ -20,6 +20,10 @@ public:
 		return value;
 	}
 
+	bool operator==(const Tile& tile) const {
+		return value == tile.value;
+	}
+
 	friend std::ostream& operator<<( std::ostream& stream, const Tile& tile) {
 		//	return stream << " " <<  (tile.isEmpty() ? " " : std::to_string(tile.value)) << "  ";
 		// Use https://www.soscisurvey.de/tools/view-chars.php to fix/change

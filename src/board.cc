@@ -1,7 +1,11 @@
 #include <iostream>
+#include <iterator>
 #include <string>
 #include <array>
+#include <algorithm>
+
 #include "internal/tile.hh"
+#include "internal/point.hh"
 
 #if defined(__linux__)
 	constexpr std::string clear = "\x1B[2J\x1B[H";
@@ -13,12 +17,23 @@ public:
 	Board() {
 		display_board();
 	}
+	
+	/**
+	 * @return The location of the empty tile in the 4 * 4 grid of tiles.
+	 */
+	inline Point empty_at() {
+		auto it = std::find(board.begin(), board.end(), Tile{0});
+		std::size_t dist = std::distance(board.begin(), it);
+		short x = dist % 4;
+		short y = dist / 4;
+		return Point(x, y);
+	}
 
 	/// Display the board with all the tiles.
 	/// @returns void
 	void display_board() {	
 		std::cout << clear;
-		for (auto i = 0; auto const& tile : solved_board) {
+		for (auto i = 0; auto const& tile : board) {
 			std::cout << tile;
 			i += 1;
 			if (!(i % 4)) {
@@ -30,29 +45,8 @@ public:
 	friend class Controller;
 
 private:
-	
-	bool slide_up() {
-		return 0;
-	}
-	
-	bool slide_down() {
-		return 0;
-	}
-	
-	bool slide_left() {
-		return 0;
-	}
-	
-	bool slide_right() {
-		return 0;
-	}
 
-	void do_exit() {
-		std::cout << "\n\nBYE\n\n";
-		exit(0);
-	}
-
-	std::array<Tile<int>, 16> solved_board = {
+	std::array<Tile<int>, 16> board = {
 		Tile{1},
 		Tile{2},
 		Tile{3},
