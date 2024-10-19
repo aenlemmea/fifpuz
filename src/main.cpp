@@ -1,3 +1,6 @@
+#include "board.cc"
+
 auto main(int argc, char** argv) -> int {
-	return 0;
+    Board board{};
+    return 0;
 }
