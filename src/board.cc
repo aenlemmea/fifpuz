@@ -13,8 +13,12 @@ public:
 
 	void display_solved() {	
 		std::cout << clear;
-		for (auto const& tile : solved_board) {
+		for (auto i = 0; auto const& tile : solved_board) {
 			std::cout << tile;
+			i += 1;
+			if (!(i % 4)) {
+				std::cout << "\n";
+			}
 		}
 	}
 private:

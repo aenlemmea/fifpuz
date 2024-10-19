@@ -2,7 +2,6 @@
 #define TILE_HH
 
 #include <ostream>
-#include <string>
 
 template <typename T = int>
 class Tile {
@@ -22,8 +21,15 @@ public:
 	}
 
 	friend std::ostream& operator<<( std::ostream& stream, const Tile& tile) {
-		return stream << " " <<  (tile.isEmpty() ? " " : std::to_string(tile.value)) << "  ";
-	}
+	//	return stream << " " <<  (tile.isEmpty() ? " " : std::to_string(tile.value)) << "  ";
+		if ( tile.value > 0 && tile.value <= 9) {
+			return stream << "  " << tile.value << " ";
+		} else if ( tile.value >= 10) {
+			return stream << " " << tile.value << " ";
+		} else {
+			return stream << "   ";
+		}
+	}	
 
 	private:
 		T value;
